@@ -24,7 +24,7 @@ export default function Homepage(){
           <Title text={"Look out these community videos!"} />
         </span>
         <section className="my-5 p-10">
-          <Subtitle text={"New videos & clips"}/>
+          <Subtitle title={"New videos & clips"}/>
           <div className="grid grid-cols-4 w-full grid-rows-1">
             {arrVideo.map((idx) => (
               <Video key={idx} title={"Highlight Video"} description={"5k on de_mix_train_css5k on de_mix_train_css5k on de_mix_train_css5k on de_mix_train_css5k on de_mix_train_css"} src={"https://picsum.photos/1920/1080"} />
@@ -32,7 +32,7 @@ export default function Homepage(){
           </div>
         </section>
         <section className="my-5 p-10">
-          <Subtitle text={"Hottest mods"} />
+          <Subtitle title={"Hottest mods"} />
           <HotContent img={"https://i.imgur.com/3hBx2uC.jpeg"} />
         </section>
       </div>

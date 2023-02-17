@@ -8,16 +8,16 @@ export default function Navbar() {
     <nav className="flex bg-secondary py-10 flex-wrap w-full items-center justify-between px-[5.5rem]">
       <Logo />
       <ul className="flex gap-10 items-center">
-        <Link href="/weapons" className="text-p-text hover:text-s-text">
+        <Link href="/mods/weapons" className="text-p-text hover:text-s-text">
           Weapons
         </Link>
-        <Link href="/knifes" className="text-p-text hover:text-s-text">
+        <Link href="/mods/knifes" className="text-p-text hover:text-s-text">
           Knifes
         </Link>
-        <Link href="/gloves" className="text-p-text hover:text-s-text">
+        <Link href="/mods/gloves" className="text-p-text hover:text-s-text">
           Gloves
         </Link>
-        <Link href="/mods" className="text-p-text hover:text-s-text">
+        <Link href="/mods/server-side" className="text-p-text hover:text-s-text">
           Mods
         </Link>
         <Link href="/upload" className="text-p-text hover:text-s-text">

@@ -5,7 +5,7 @@ import { TbArrowBigUpLines, TbArrowBigDownLines } from "react-icons/tb";
 import { useState } from "react";
 import Link from "next/link";
 
-export default function Mods({ title }) {
+export default function Mods({ title, src, description, href }) {
   const [isUpVoted, setIsUpVoted] = useState(true);
   const [isDownVoted, setIsDownVoted] = useState(true);
 
@@ -32,40 +32,45 @@ export default function Mods({ title }) {
   }
 
   return (
-    <aside className="bg-light-dark w-[29rem] flex">
-      <div className="h-full p-2 bg-secondary">
-        <span className="flex flex-col items-center gap-1">
-          <button
-            id="upVote"
-            onClick={() => {
-              setIsUpVoted(!isUpVoted);
-              setIsDownVoted(true);
-              handleClickUpVote();
-            }}
-          >
-            <TbArrowBigUpLines className="hover:text-red-500" size={20} />
-          </button>
-          <span className="text-xs">213</span>
-          <button
-            id="downVote"
-            onClick={() => {
-              setIsDownVoted(!isDownVoted);
-              setIsUpVoted(true);
-              handleClickDownVote();
-            }}
-          >
-            <TbArrowBigDownLines className="hover:text-blue-500" size={20} />
-          </button>
-        </span>
-      </div>
-      <Link className="w-[46rem]" href={"/"}>
-        <div className="px-4 w-full h-full">
-          <span>
-            <h1 className="text-xl font-bold py-3">
-              {title}
-            </h1>
-            <img className="w-full" src="https://picsum.photos/1920/1080" />
-          </span>
+    <aside className="bg-light-dark w-[30rem] flex">
+      <Link className="w-[46rem] " href={href}>
+        <div className="p-4 w-full">
+          <div className="flex justify-between">
+            <div>
+              <h1 className="text-xl font-bold py-4">{title}</h1>
+              <p className="text-sm text-zinc-500 pb-2  ">{description}</p>
+            </div>
+            <div className="p-2">
+              <span className="flex flex-col items-center gap-1">
+                <button
+                  id="upVote"
+                  onClick={() => {
+                    setIsUpVoted(!isUpVoted);
+                    setIsDownVoted(true);
+                    handleClickUpVote();
+                  }}
+                >
+                  <TbArrowBigUpLines className="hover:text-red-500" size={20} />
+                </button>
+                <span className="text-xs">213</span>
+                <button
+                  id="downVote"
+                  onClick={() => {
+                    setIsDownVoted(!isDownVoted);
+                    setIsUpVoted(true);
+                    handleClickDownVote();
+                  }}
+                >
+                  <TbArrowBigDownLines
+                    className="hover:text-blue-500"
+                    size={20}
+                  />
+                </button>
+              </span>
+            </div>
+          </div>
+            <img className="w-full h-[20rem]" src={src} />
+
           <div className="flex justify-between mt-3 p-2">
             <span className="flex items-center flex-col cursor-default">
               <span className="flex items-center gap-1">
