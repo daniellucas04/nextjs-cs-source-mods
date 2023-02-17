@@ -69,7 +69,7 @@ export default function Mods({ title, src, description, href }) {
               </span>
             </div>
           </div>
-            <img className="w-full h-[20rem]" src={src} />
+          <img className="w-full h-[20rem]" src={src} />
 
           <div className="flex justify-between mt-3 p-2">
             <span className="flex items-center flex-col cursor-default">

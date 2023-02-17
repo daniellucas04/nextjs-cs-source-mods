@@ -3,13 +3,23 @@ import { CgPassword } from "react-icons/cg";
 import Link from "next/link";
 import FastLogin from "../FastLogin";
 import BackButton from "@/pages/components/BackButton";
+import { useForm } from "react-hook-form";
 
 export default function Login() {
+  const { register, handleSubmit } = useForm();
+
+  function handleSignIn(data) {
+    console.log(data);
+  }
+
   return (
     <>
       <BackButton href={"/"} text={"Back to homepage"} />
       <div className="flex w-full h-full items-center justify-center mt-14">
-        <form className="flex flex-col gap-5 w-96 h-max bg-secondary p-10 rounded-md">
+        <form
+          onSubmit={handleSubmit(handleSignIn)}
+          className="flex flex-col gap-5 w-96 h-max bg-secondary p-10 rounded-md"
+        >
           <FastLogin text={"Login"} />
           <div className="flex flex-col gap-2">
             <label
@@ -23,11 +33,13 @@ export default function Login() {
                 <AiOutlineMail size={20} />
               </div>
               <input
+                {...register("email")}
                 required
                 type="email"
                 autoComplete={"current-email"}
                 className="input bg-primary w-[19rem] ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 p-3 pl-10"
                 id="email"
+                name="email"
               />
             </div>
           </div>
@@ -43,11 +55,13 @@ export default function Login() {
                 <CgPassword size={20} />
               </div>
               <input
+                {...register("password")}
                 required
                 autoComplete={"current-password"}
                 className="input bg-primary w-[19rem] p-3 pl-10 ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400"
                 type="password"
                 id="password"
+                name="password"
               />
             </div>
           </div>
