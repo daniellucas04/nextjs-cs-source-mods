@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { FiLink, FiUploadCloud } from "react-icons/fi";
 import { BsFillFileEarmarkImageFill } from "react-icons/bs";
 import { MdTitle } from "react-icons/md";
+import { getSession } from "next-auth/react";
+import { requireAuthentication } from "@/utils/requireAuthentication";
 import Title from "@/pages/typography/Title";
 import Mods from "@/pages/mods_cards/Mods";
-import { useState } from "react";
 import Subtitle from "../typography/Subtitle";
 import Navbar from "../Navbar";
 
@@ -24,7 +26,7 @@ export default function Upload() {
 
   return (
     <>
-    <Navbar />
+      <Navbar />
       <Title text={"Complete the form to upload your mod"} />
       <div className="flex items-center justify-evenly">
         <section>
@@ -61,7 +63,7 @@ export default function Upload() {
                 />
 
                 <label className="text-xl" htmlFor="youtube-link">
-                  Video URL
+                  Video URL (Video ID)
                 </label>
                 <div className="relative">
                   <div className="input-icon">
@@ -110,6 +112,7 @@ export default function Upload() {
           </main>
         </section>
 
+        {/* Preview section */}
         <section className="flex flex-col items-center gap-2">
           <Subtitle title={"Card Preview"} />
           <Mods title={title} description={description} src={image} href={""} />
@@ -117,4 +120,20 @@ export default function Upload() {
       </div>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/auth/login",
+        permanent: false,
+      },
+    };
+  }
+  return {
+    props: { session },
+  };
 }

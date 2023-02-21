@@ -11,23 +11,30 @@ import HotContent from "./HotContent";
     [ ] Imagens dos Mapas
 */
 
-const arrVideo = [0, 1, 2, 3]
+const arrVideo = [0, 1, 2, 3];
 
-export default function Homepage(){
-  return(
+export default function Homepage() {
+  return (
     <main className="w-full h-min">
-        <div className="flex justify-end p-10">
-          <Search placeholder={"css skin pack"} />
-        </div>
+      <div className="flex justify-end p-10">
+        <Search placeholder={"css skin pack"} />
+      </div>
       <div className="mt-1">
         <span className="flex justify-center">
           <Title text={"Look out these community videos!"} />
         </span>
         <section className="my-5 p-10">
-          <Subtitle title={"New videos & clips"}/>
+          <Subtitle title={"New videos & clips"} />
           <div className="grid grid-cols-4 w-full grid-rows-1">
             {arrVideo.map((idx) => (
-              <Video key={idx} title={"Highlight Video"} description={"5k on de_mix_train_css5k on de_mix_train_css5k on de_mix_train_css5k on de_mix_train_css5k on de_mix_train_css"} src={"https://picsum.photos/1920/1080"} />
+              <Video
+                key={idx}
+                title={"Highlight Video"}
+                description={
+                  "5k on de_mix_train_css5k on de_mix_train_css5k on de_mix_train_css5k on de_mix_train_css5k on de_mix_train_css"
+                }
+                src={"https://picsum.photos/1920/1080"}
+              />
             ))}
           </div>
         </section>
@@ -37,5 +44,5 @@ export default function Homepage(){
         </section>
       </div>
     </main>
-  )
+  );
 }

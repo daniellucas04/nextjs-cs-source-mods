@@ -1,15 +1,24 @@
 import { AiOutlineMail } from "react-icons/ai";
 import { CgPassword } from "react-icons/cg";
+import { getSession, signIn } from "next-auth/react";
+import { useState } from "react";
 import Link from "next/link";
 import FastLogin from "../FastLogin";
 import BackButton from "@/pages/components/BackButton";
-import { useForm } from "react-hook-form";
+import { requireAuthentication } from "@/utils/requireAuthentication";
 
 export default function Login() {
-  const { register, handleSubmit } = useForm();
+  const [userInfo, setUserInfo] = useState({
+    email: "",
+    password: "",
+  });
 
-  function handleSignIn(data) {
-    console.log(data);
+  function onSubmit(event) {
+    event.preventDefault();
+    signIn("credentials", {
+      email: userInfo.email,
+      password: userInfo.password,
+    });
   }
 
   return (
@@ -17,7 +26,7 @@ export default function Login() {
       <BackButton href={"/"} text={"Back to homepage"} />
       <div className="flex w-full h-full items-center justify-center mt-14">
         <form
-          onSubmit={handleSubmit(handleSignIn)}
+          onSubmit={onSubmit}
           className="flex flex-col gap-5 w-96 h-max bg-secondary p-10 rounded-md"
         >
           <FastLogin text={"Login"} />
@@ -33,7 +42,10 @@ export default function Login() {
                 <AiOutlineMail size={20} />
               </div>
               <input
-                {...register("email")}
+                value={userInfo.email}
+                onChange={(event) =>
+                  setUserInfo({ ...userInfo, email: event.target.value })
+                }
                 required
                 type="email"
                 autoComplete={"current-email"}
@@ -55,7 +67,10 @@ export default function Login() {
                 <CgPassword size={20} />
               </div>
               <input
-                {...register("password")}
+                value={userInfo.password}
+                onChange={(event) =>
+                  setUserInfo({ ...userInfo, password: event.target.value })
+                }
                 required
                 autoComplete={"current-password"}
                 className="input bg-primary w-[19rem] p-3 pl-10 ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400"
@@ -83,3 +98,22 @@ export default function Login() {
     </>
   );
 }
+
+export const getServerSideProps = async (context) => {
+  const session = await getSession(context);
+
+  if (session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      session,
+    },
+  };
+};

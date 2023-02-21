@@ -37,8 +37,12 @@ export default function Mods({ title, src, description, href }) {
         <div className="p-4 w-full">
           <div className="flex justify-between">
             <div>
-              <h1 className="text-xl font-bold py-4">{title}</h1>
-              <p className="text-sm text-zinc-500 pb-2  ">{description}</p>
+              <h1 className="text-xl font-bold py-4 truncate max-w-[25rem]">
+                {title}
+              </h1>
+              <p className="text-sm text-zinc-500 pb-2 truncate max-w-[25rem]">
+                {description}
+              </p>
             </div>
             <div className="p-2">
               <span className="flex flex-col items-center gap-1">
