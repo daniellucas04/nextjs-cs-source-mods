@@ -39,6 +39,10 @@
   .down-vote{
     @apply text-blue-500;
   }
+
+  .display-none{
+    @apply hidden;
+  }
 }
 
 

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FiLink, FiUploadCloud } from "react-icons/fi";
 import { BsFillFileEarmarkImageFill } from "react-icons/bs";
 import { MdTitle } from "react-icons/md";
-import { getSession } from "next-auth/react";
 import { requireAuthentication } from "@/utils/requireAuthentication";
 import Title from "@/pages/typography/Title";
 import Mods from "@/pages/mods_cards/Mods";
@@ -76,16 +75,16 @@ export default function Upload() {
                   />
                 </div>
 
-                <label className="text-xl" htmlFor="image">
-                  Image
+                <label
+                  className="text-xl w-full h-[5rem] flex items-center bg-primary justify-center border-2 border-dashed border-indigo-600 rounded-xl cursor-pointer hover:text-indigo-300 transition-colors ease-in-out"
+                  htmlFor="image"
+                >
+                  Select an image
                 </label>
-                <div className="relative">
-                  <div className="input-icon">
-                    <BsFillFileEarmarkImageFill />
-                  </div>
+                <div>
                   <input
                     onChange={onImageChange}
-                    className="input bg-primary w-full ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 p-3 pl-10"
+                    className="hidden bg-primary w-full ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 p-3 pl-10"
                     id="image"
                     type="file"
                   />
@@ -123,17 +122,9 @@ export default function Upload() {
 }
 
 export async function getServerSideProps(context) {
-  const session = await getSession(context);
-
-  if (!session) {
+  return await requireAuthentication(context, (session) => {
     return {
-      redirect: {
-        destination: "/auth/login",
-        permanent: false,
-      },
+      props: { session: null },
     };
-  }
-  return {
-    props: { session },
-  };
+  });
 }

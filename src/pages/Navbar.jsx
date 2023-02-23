@@ -1,27 +1,75 @@
 import Link from "next/link";
 import Logo from "./components/Logo";
-import { getSession, signOut, useSession } from "next-auth/react";
-// Change Theme Button
+import { signOut, useSession } from "next-auth/react";
+import { CiLight } from "react-icons/ci";
+import { MdDarkMode } from "react-icons/md";
+import { useEffect } from "react";
 
 export default function Navbar() {
   const { data } = useSession();
 
+  useEffect(() => {
+    themeCheck();
+  }, []);
+
+  function iconToggle() {
+    const moon = document.getElementById("moon");
+    const sun = document.getElementById("sun");
+    moon.classList.toggle("display-none");
+    sun.classList.toggle("display-none");
+  }
+
+  function themeCheck() {
+    const systemTheme = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    const userTheme = localStorage.getItem("theme");
+
+    if (userTheme === "dark" || (!userTheme && systemTheme)) {
+      document.documentElement.classList.add("dark");
+      moon.classList.add("display-none");
+      return;
+    }
+    sun.classList.add("display-none");
+  }
+
+  function changeTheme() {
+    if (document.documentElement.classList.contains("dark")) {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+      iconToggle();
+      return;
+    }
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+    iconToggle();
+  }
+
   return (
-    <nav className="flex bg-secondary py-10 flex-wrap w-full items-center justify-between px-[5.5rem]">
+    <nav className="flex bg-white dark:bg-secondary py-10 flex-wrap w-full items-center justify-between px-[5.5rem]">
       <Logo />
-      <ul className="flex gap-10 items-center">
-        <Link href="/mods/weapons" className="text-p-text hover:text-s-text">
+      <ul className="flex gap-10 text-dark dark:text-white items-center">
+        <Link
+          href="/mods/weapons"
+          className="text-black dark:text-white hover:text-s-text"
+        >
           Weapons
         </Link>
-        <Link href="/mods/knifes" className="text-p-text hover:text-s-text">
+        <Link
+          href="/mods/knifes"
+          className="text-black dark:text-white hover:text-s-text"
+        >
           Knifes
         </Link>
-        <Link href="/mods/gloves" className="text-p-text hover:text-s-text">
+        <Link
+          href="/mods/gloves"
+          className="text-black dark:text-white hover:text-s-text"
+        >
           Gloves
         </Link>
         <Link
           href="/mods/server-side"
-          className="text-p-text hover:text-s-text"
+          className="text-black dark:text-white hover:text-s-text"
         >
           Mods
         </Link>
@@ -37,7 +85,11 @@ export default function Navbar() {
       {data ? (
         <div className="flex items-center gap-3">
           <span className="flex items-center gap-4">
-            <h1 className="text-xl">Hi, {data?.user?.name}</h1>
+            <span>
+              <h1 className="text-xl">Hi, {data?.user?.name}</h1>
+              <p className="text-xs text-gray-400">{data?.user?.email}</p>
+            </span>
+
             <img
               className="rounded-full w-[4.0rem] h-[4.0rem]"
               src={data?.user?.image}
@@ -67,29 +119,21 @@ export default function Navbar() {
           </Link>
         </div>
       )}
+      <div>
+        <CiLight
+          id="sun"
+          size={35}
+          className="text-white"
+          onClick={changeTheme}
+        />
+
+        <MdDarkMode
+          id="moon"
+          size={35}
+          className="text-black"
+          onClick={changeTheme}
+        />
+      </div>
     </nav>
   );
 }
-
-export const getServerSideProps = async (context) => {
-  const session = await getSession(context);
-
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/auth/login",
-        permanent: false,
-      },
-    };
-  }
-
-  return {
-    props: {
-      session,
-    },
-    redirect: {
-      destination: "/",
-      permanent: false,
-    },
-  };
-};
