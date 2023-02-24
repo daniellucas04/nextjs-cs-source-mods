@@ -1,11 +1,11 @@
-import mysql from 'mysql2/promise';
+import query from "@/lib/database";
 
 export default async function handler(req, res) {
-  const dbConnection = await mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '1234',
-    database: 'source_mods',
-  });
-  res.status(200).json({ name: 'Hello' })
+  if (req.method === "GET") {
+    const mods = await query({
+      query: "SELECT * FROM mods",
+      values: [],
+    })
+    res.status(200).json({ mods: mods })
+  }
 }

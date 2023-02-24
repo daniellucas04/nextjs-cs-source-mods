@@ -5,7 +5,7 @@ import { TbArrowBigUpLines, TbArrowBigDownLines } from "react-icons/tb";
 import { useState } from "react";
 import Link from "next/link";
 
-export default function Mods({ title, src, description, href }) {
+export default function Mods({ uploadDate, title, src, description, href }) {
   const [isUpVoted, setIsUpVoted] = useState(true);
   const [isDownVoted, setIsDownVoted] = useState(true);
 
@@ -32,11 +32,12 @@ export default function Mods({ title, src, description, href }) {
   }
 
   return (
-    <aside className="bg-light-dark w-[30rem] flex">
-      <Link className="w-[46rem] " href={href}>
+    <aside className="bg-light-dark w-[30rem] flex rounded-lg">
+      <Link className="w-[46rem]" href={href}>
         <div className="p-4 w-full">
           <div className="flex justify-between">
             <div>
+              <span>{uploadDate}</span>
               <h1 className="text-xl font-bold py-4 truncate max-w-[25rem]">
                 {title}
               </h1>
@@ -73,7 +74,10 @@ export default function Mods({ title, src, description, href }) {
               </span>
             </div>
           </div>
-          <img className="w-full h-[20rem]" src={src} />
+          <img
+            className="w-full h-[20rem] object-cover rounded-sm border"
+            src={src}
+          />
 
           <div className="flex justify-between mt-3 p-2">
             <span className="flex items-center flex-col cursor-default">

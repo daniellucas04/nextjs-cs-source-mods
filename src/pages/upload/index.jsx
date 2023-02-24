@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { FiLink, FiUploadCloud } from "react-icons/fi";
-import { BsFillFileEarmarkImageFill } from "react-icons/bs";
+import { BsImage } from "react-icons/bs";
 import { MdTitle } from "react-icons/md";
 import { requireAuthentication } from "@/utils/requireAuthentication";
 import Title from "@/pages/typography/Title";
 import Mods from "@/pages/mods_cards/Mods";
-import Subtitle from "../typography/Subtitle";
 import Navbar from "../Navbar";
 
 export default function Upload() {
   const [title, setTitle] = useState("without title");
   const [description, setDescription] = useState("without description");
+  const [videoID, setVideoID] = useState("");
+  const [downloadLink, setDownloadLink] = useState("");
   const [image, setImage] = useState(null);
 
   function handleSubmit(event) {
@@ -27,14 +28,11 @@ export default function Upload() {
     <>
       <Navbar />
       <Title text={"Complete the form to upload your mod"} />
-      <div className="flex items-center justify-evenly">
+      <div className="flex items-start mt-10 justify-evenly">
         <section>
-          <main className="flex flex-col items-center justify-center">
-            <div className="w-full h-screen flex justify-center items-center">
-              <form
-                onSubmit={handleSubmit}
-                className="w-[40rem] rounded ml-10 gap-4 flex flex-col bg-secondary p-10"
-              >
+          <main className="flex flex-col justify-center">
+            <div className="w-full h-min mb-10 flex justify-center">
+              <form className="w-[40rem] rounded ml-10 gap-4 flex flex-col bg-secondary p-10">
                 <label className="text-xl" htmlFor="title">
                   Title
                 </label>
@@ -43,6 +41,7 @@ export default function Upload() {
                     <MdTitle />
                   </div>
                   <input
+                    required
                     onChange={(event) => setTitle(event.target.value)}
                     className="input bg-primary w-full ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 p-3 pl-10"
                     id="title"
@@ -54,6 +53,7 @@ export default function Upload() {
                   Description
                 </label>
                 <textarea
+                  required
                   onChange={(event) => setDescription(event.target.value)}
                   id="description"
                   cols="30"
@@ -69,6 +69,7 @@ export default function Upload() {
                     <FiLink />
                   </div>
                   <input
+                    required
                     className="input bg-primary w-full ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 p-3 pl-10"
                     id="youtube-link"
                     type="text"
@@ -76,19 +77,21 @@ export default function Upload() {
                 </div>
 
                 <label
-                  className="text-xl w-full h-[5rem] flex items-center bg-primary justify-center border-2 border-dashed border-indigo-600 rounded-xl cursor-pointer hover:text-indigo-300 transition-colors ease-in-out"
+                  className="text-xl flex-col w-full h-[6rem] flex items-center bg-primary justify-center border-2 border-dashed border-indigo-600 rounded-xl cursor-pointer hover:text-indigo-300 transition-colors ease-in-out"
                   htmlFor="image"
                 >
                   Select an image
+                  <span className="text-xs text-gray-400/60">
+                    or drag the file here
+                  </span>
                 </label>
-                <div>
-                  <input
-                    onChange={onImageChange}
-                    className="hidden bg-primary w-full ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 p-3 pl-10"
-                    id="image"
-                    type="file"
-                  />
-                </div>
+                <input
+                  required
+                  onChange={onImageChange}
+                  className="hidden bg-primary p-4 pl-10 w-full ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400"
+                  id="image"
+                  type="file"
+                />
 
                 <label className="text-xl" htmlFor="download_link">
                   Download link
@@ -98,14 +101,12 @@ export default function Upload() {
                     <FiUploadCloud />
                   </div>
                   <input
+                    required
                     className="input bg-primary w-full ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 p-3 pl-10"
                     type="text"
                     id="download_link"
                   />
                 </div>
-                <button className="button-link text-primary-text hover:text-secondary-text bg-primary px-4 py-2 ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 rounded-md">
-                  Upload mod
-                </button>
               </form>
             </div>
           </main>
@@ -113,8 +114,13 @@ export default function Upload() {
 
         {/* Preview section */}
         <section className="flex flex-col items-center gap-2">
-          <Subtitle title={"Card Preview"} />
           <Mods title={title} description={description} src={image} href={""} />
+          <button
+            onClick={handleSubmit}
+            className="bg-white text-s-text dark:bg-secondary dark:text-white hover:dark:text-s-text font-bold hover:text-p-text w-full px-4 py-2 ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 rounded-md"
+          >
+            Upload mod
+          </button>
         </section>
       </div>
     </>

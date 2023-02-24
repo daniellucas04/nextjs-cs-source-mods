@@ -86,7 +86,9 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <span className="flex items-center gap-4">
             <span>
-              <h1 className="text-xl">Hi, {data?.user?.name}</h1>
+              <h1 className="text-xl text-black dark:text-white">
+                Hi, {data?.user?.name}
+              </h1>
               <p className="text-xs text-gray-400">{data?.user?.email}</p>
             </span>
 
@@ -119,18 +121,18 @@ export default function Navbar() {
           </Link>
         </div>
       )}
-      <div>
+      <div className="cursor-pointer bg-black dark:bg-white rounded-full p-2 transition-all ease-in-out">
         <CiLight
           id="sun"
           size={35}
-          className="text-white"
+          className="text-black"
           onClick={changeTheme}
         />
 
         <MdDarkMode
           id="moon"
           size={35}
-          className="text-black"
+          className="text-white"
           onClick={changeTheme}
         />
       </div>

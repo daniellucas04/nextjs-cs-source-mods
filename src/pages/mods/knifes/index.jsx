@@ -2,8 +2,27 @@ import Mods from "../../mods_cards/Mods";
 import KnifeList from "./KnifesList";
 import Subtitle from "@/pages/typography/Subtitle";
 import Navbar from "@/pages/Navbar";
+import { useEffect, useState } from "react";
 
 export default function KnifePage() {
+  const [mods, setMods] = useState([]);
+
+  async function getMods() {
+    const postData = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const result = await fetch("http://localhost:3000/api/getdata", postData);
+    const response = await result.json();
+    setMods(response.mods);
+  }
+
+  useEffect(() => {
+    getMods();
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -17,12 +36,13 @@ export default function KnifePage() {
               <Subtitle text={"All knifes mods"} />
             </div>
             <div className="grid grid-cols-3 grid-rows-1 gap-5">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((idx) => (
+              {mods.map((mod) => (
                 <Mods
-                  key={idx}
-                  title={"Catch this mod"}
-                  description={"See the description"}
-                  src={"nada"}
+                  key={mod.idMod}
+                  uploadDate={mod.DataUpload}
+                  title={mod.TituloMod}
+                  description={mod.DescricaoMod}
+                  src={"https://github.com/daniellucas04.png"}
                   href={"/"}
                 />
               ))}
