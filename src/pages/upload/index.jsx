@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FiLink, FiUploadCloud } from "react-icons/fi";
-import { BsImage } from "react-icons/bs";
+import { BiCategory } from "react-icons/bi";
 import { MdTitle } from "react-icons/md";
 import { requireAuthentication } from "@/utils/requireAuthentication";
 import Title from "@/pages/typography/Title";
@@ -10,17 +10,44 @@ import Navbar from "../Navbar";
 export default function Upload() {
   const [title, setTitle] = useState("without title");
   const [description, setDescription] = useState("without description");
-  const [videoID, setVideoID] = useState("");
-  const [downloadLink, setDownloadLink] = useState("");
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState("without thumbnail");
+  const [videoId, setVideoId] = useState("without video");
+  const [downloadLink, setDownloadLink] = useState("without link to download");
+  const [category, setCategory] = useState("without category");
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  const [imagePreview, setImagePreview] = useState(null);
+  const [added, setAdded] = useState(false);
+
+  const uploadDate = new Date().toISOString().split("T")[0];
+
+  async function addModToDatabase() {
+    const postData = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: title,
+        description: description,
+        uploadDate: uploadDate,
+        downloadLink: downloadLink,
+        videoId: videoId,
+        category: category,
+        image: image,
+      }),
+    };
+
+    if (title.length < 4) return;
+    await fetch("http://localhost:3000/api/getmods", postData)
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+
+    setAdded(true);
   }
 
   function onImageChange(event) {
     if (event.target.files && event.target.files[0]) {
-      setImage(URL.createObjectURL(event.target.files[0]));
+      setImagePreview(URL.createObjectURL(event.target.files[0]));
     }
   }
 
@@ -61,14 +88,51 @@ export default function Upload() {
                   className="resize-none rounded bg-primary ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 p-1 "
                 />
 
+                <label className="text-xl" htmlFor="category">
+                  Category
+                </label>
+
+                <div className="relative">
+                  <div className="input-icon">
+                    <BiCategory />
+                  </div>
+                  <select
+                    onChange={(event) => setCategory(event.target.value)}
+                    className="input text-base font-semibold bg-primary w-full ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 p-3 pl-10"
+                    id="category"
+                  >
+                    <option value="0" selected>
+                      Select a Category
+                    </option>
+                    <option value="0" disabled>
+                      ------------ Weapons and Skins ------------
+                    </option>
+                    <option value="pistols">Pistols</option>
+                    <option value="rifles">Rifles</option>
+                    <option value="snipers">Snipers</option>
+                    <option value="submachines">Submachines</option>
+                    <option value="shotguns">Shotguns</option>
+                    <option value="knifes">Knifes</option>
+                    <option value="gloves">Gloves</option>
+                    <option value="0" disabled>
+                      ------------ Server Side ------------
+                    </option>
+                    <option value="featured">Featured</option>
+                    <option value="players-models">Players Models</option>
+                    <option value="server-tools">Server Tools</option>
+                    <option value="misc">Misc</option>
+                  </select>
+                </div>
+
                 <label className="text-xl" htmlFor="youtube-link">
-                  Video URL (Video ID)
+                  YouTube Video (Video ID)
                 </label>
                 <div className="relative">
                   <div className="input-icon">
                     <FiLink />
                   </div>
                   <input
+                    onChange={(event) => setVideoId(event.target.value)}
                     required
                     className="input bg-primary w-full ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 p-3 pl-10"
                     id="youtube-link"
@@ -87,7 +151,10 @@ export default function Upload() {
                 </label>
                 <input
                   required
-                  onChange={onImageChange}
+                  onChange={(event) => {
+                    onImageChange(event);
+                    setImage(event.target.value);
+                  }}
                   className="hidden bg-primary p-4 pl-10 w-full ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400"
                   id="image"
                   type="file"
@@ -101,6 +168,7 @@ export default function Upload() {
                     <FiUploadCloud />
                   </div>
                   <input
+                    onChange={(event) => setDownloadLink(event.target.value)}
                     required
                     className="input bg-primary w-full ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 p-3 pl-10"
                     type="text"
@@ -114,9 +182,16 @@ export default function Upload() {
 
         {/* Preview section */}
         <section className="flex flex-col items-center gap-2">
-          <Mods title={title} description={description} src={image} href={""} />
+          {added ? <h1>Success</h1> : null}
+          <Mods
+            title={title}
+            description={description}
+            src={imagePreview}
+            category={category}
+            href={""}
+          />
           <button
-            onClick={handleSubmit}
+            onClick={addModToDatabase}
             className="bg-white text-s-text dark:bg-secondary dark:text-white hover:dark:text-s-text font-bold hover:text-p-text w-full px-4 py-2 ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 rounded-md"
           >
             Upload mod

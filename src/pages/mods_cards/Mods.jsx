@@ -5,7 +5,14 @@ import { TbArrowBigUpLines, TbArrowBigDownLines } from "react-icons/tb";
 import { useState } from "react";
 import Link from "next/link";
 
-export default function Mods({ uploadDate, title, src, description, href }) {
+export default function Mods({
+  uploadDate,
+  title,
+  src,
+  description,
+  href,
+  category,
+}) {
   const [isUpVoted, setIsUpVoted] = useState(true);
   const [isDownVoted, setIsDownVoted] = useState(true);
 
@@ -40,6 +47,7 @@ export default function Mods({ uploadDate, title, src, description, href }) {
               <span>{uploadDate}</span>
               <h1 className="text-xl font-bold py-4 truncate max-w-[25rem]">
                 {title}
+                <span className="ml-4 bg-primary p-1 rounded">{category}</span>
               </h1>
               <p className="text-sm text-zinc-500 pb-2 truncate max-w-[25rem]">
                 {description}

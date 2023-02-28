@@ -6,7 +6,7 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 export default NextAuth({
   session: {
     strategy: 'jwt',
-    maxAge: 30 * 24 * 60 * 60 // 30 days
+    maxAge: 60 * 30 // 30 minutes
   },
   providers: [
     GoogleProvider({

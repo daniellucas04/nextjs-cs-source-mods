@@ -71,7 +71,7 @@ export default function Navbar() {
           href="/mods/server-side"
           className="text-black dark:text-white hover:text-s-text"
         >
-          Mods
+          Server side
         </Link>
         {data && (
           <Link

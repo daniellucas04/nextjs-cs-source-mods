@@ -5,7 +5,7 @@ import Navbar from "@/pages/Navbar";
 import { useEffect, useState } from "react";
 
 export default function KnifePage() {
-  const [mods, setMods] = useState([]);
+  const [knifes, setKnifes] = useState([]);
 
   async function getMods() {
     const postData = {
@@ -14,9 +14,10 @@ export default function KnifePage() {
         "Content-Type": "application/json",
       },
     };
-    const result = await fetch("http://localhost:3000/api/getdata", postData);
+
+    const result = await fetch("http://localhost:3000/api/getknifes", postData);
     const response = await result.json();
-    setMods(response.mods);
+    setKnifes(response.knifes);
   }
 
   useEffect(() => {
@@ -36,14 +37,15 @@ export default function KnifePage() {
               <Subtitle text={"All knifes mods"} />
             </div>
             <div className="grid grid-cols-3 grid-rows-1 gap-5">
-              {mods.map((mod) => (
+              {knifes.map((knife) => (
                 <Mods
-                  key={mod.idMod}
-                  uploadDate={mod.DataUpload}
-                  title={mod.TituloMod}
-                  description={mod.DescricaoMod}
-                  src={"https://github.com/daniellucas04.png"}
-                  href={"/"}
+                  key={knife.IdMod}
+                  uploadDate={knife.UploadDate.split("T")[0]}
+                  title={knife.Title}
+                  description={knife.Description}
+                  category={knife.Category}
+                  src={knife.Thumbnail}
+                  href={""}
                 />
               ))}
             </div>

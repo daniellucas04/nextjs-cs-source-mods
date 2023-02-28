@@ -1,11 +1,13 @@
 import query from "@/lib/database";
 
+
 export default async function handler(req, res) {
   if (req.method === "GET") {
-    const mods = await query({
-      query: "SELECT * FROM mods",
+    const weapons = await query({
+      query: "SELECT * FROM mods WHERE Category = 'rifles'",
       values: [],
     })
-    res.status(200).json({ mods: mods })
+
+    res.status(200).json({ weapons: weapons })
   }
 }
