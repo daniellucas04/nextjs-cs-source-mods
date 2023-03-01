@@ -1,12 +1,12 @@
 import GlovesList from "./GlovesList";
 import Mods from "../../mods_cards/Mods";
 import Subtitle from "@/pages/typography/Subtitle";
-import Navbar from "@/pages/Navbar";
+import Navbar from "@/pages/components/Navbar";
 
 export default function GlovesPage() {
   return (
     <>
-    <Navbar />
+      <Navbar />
       <div className="flex gap-10 items-start">
         <section className="weapon-list ml-4 w-[15em]">
           <GlovesList />
@@ -18,7 +18,13 @@ export default function GlovesPage() {
             </div>
             <div className="mt-4 grid grid-cols-3 grid-rows-1 gap-5">
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((idx) => (
-                <Mods key={idx} title={"Catch this mod"} description={"See the description"} src={"nada"} href={"/"} />
+                <Mods
+                  key={idx}
+                  title={"Catch this mod"}
+                  description={"See the description"}
+                  src={"nada"}
+                  href={``}
+                />
               ))}
             </div>
           </div>

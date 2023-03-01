@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Logo from "./components/Logo";
+import Logo from "./Logo";
 import { signOut, useSession } from "next-auth/react";
 import { CiLight } from "react-icons/ci";
 import { MdDarkMode } from "react-icons/md";
@@ -46,37 +46,37 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="flex bg-white dark:bg-secondary py-10 flex-wrap w-full items-center justify-between px-[5.5rem]">
+    <nav className="flex shadow-lg bg-primary-white dark:bg-primary-dark py-10  w-full items-center justify-between px-[5.5rem]">
       <Logo />
-      <ul className="flex gap-10 text-dark dark:text-white items-center">
+      <ul className="flex gap-10 text-typography-white dark:text-typography-dark items-center">
         <Link
           href="/mods/weapons"
-          className="text-black dark:text-white hover:text-s-text"
+          className="text-typography-white dark:text-typography-dark hover:text-typography-white/60"
         >
           Weapons
         </Link>
         <Link
           href="/mods/knifes"
-          className="text-black dark:text-white hover:text-s-text"
+          className="text-typography-white dark:text-typography-dark hover:text-typography-white/60"
         >
           Knifes
         </Link>
         <Link
           href="/mods/gloves"
-          className="text-black dark:text-white hover:text-s-text"
+          className="text-typography-white dark:text-typography-dark hover:text-typography-white/60"
         >
           Gloves
         </Link>
         <Link
           href="/mods/server-side"
-          className="text-black dark:text-white hover:text-s-text"
+          className="text-typography-white dark:text-typography-dark hover:text-typography-white/60"
         >
           Server side
         </Link>
         {data && (
           <Link
             href="/upload"
-            className="bg-primary px-2 py-2 rounded-md ring-1 ring-indigo-400 text-p-text hover:text-indigo-200"
+            className="bg-primary-white px-2 py-2 rounded-md ring-2 ring-indigo-800 text-typography-white hover:bg-black/5"
           >
             Upload your mod
           </Link>
@@ -86,7 +86,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <span className="flex items-center gap-4">
             <span>
-              <h1 className="text-xl text-black dark:text-white">
+              <h1 className="text-xl text-typography-white dark:text-typography-dark">
                 Hi, {data?.user?.name}
               </h1>
               <p className="text-xs text-gray-400">{data?.user?.email}</p>
@@ -100,7 +100,7 @@ export default function Navbar() {
           </span>
           <button
             onClick={() => signOut()}
-            className="button-link text-primary-text hover:text-secondary-text bg-primary px-4 py-2 ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 rounded-md"
+            className="button-link text-typography-white bg-primary-white px-4 py-2 ring-2 ring-indigo-500 focus:ring-2 focus:ring-indigo-400 rounded-md"
           >
             Logout
           </button>
@@ -125,7 +125,7 @@ export default function Navbar() {
         <CiLight
           id="sun"
           size={35}
-          className="text-black"
+          className="text-typographt-white"
           onClick={changeTheme}
         />
 

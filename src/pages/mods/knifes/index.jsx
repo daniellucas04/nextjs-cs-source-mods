@@ -1,7 +1,7 @@
 import Mods from "../../mods_cards/Mods";
 import KnifeList from "./KnifesList";
 import Subtitle from "@/pages/typography/Subtitle";
-import Navbar from "@/pages/Navbar";
+import Navbar from "@/pages/components/Navbar";
 import { useEffect, useState } from "react";
 
 export default function KnifePage() {
@@ -45,7 +45,7 @@ export default function KnifePage() {
                   description={knife.Description}
                   category={knife.Category}
                   src={knife.Thumbnail}
-                  href={""}
+                  href={`/mods/knifes/${knife.Title}`}
                 />
               ))}
             </div>

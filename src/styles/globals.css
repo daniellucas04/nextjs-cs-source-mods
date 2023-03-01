@@ -5,11 +5,11 @@
 
 @layer components{
   .card-weapon{
-    @apply flex flex-col justify-start ring-2 ring-secondary w-[16em] rounded-xl p-8;
+    @apply flex flex-col justify-start ring-2 ring-secondary-white w-[16em] rounded-xl p-8;
   }
 
   .button-link{
-    @apply hover:bg-secondary hover:text-p-text border border-transparent focus:border focus:border-indigo-500 transition;
+    @apply hover:bg-black/5 border border-transparent focus:border focus:border-indigo-700 transition;
   }
 
   .weapon-list{
@@ -17,7 +17,7 @@
   }
 
   .link-hover{
-    @apply hover:text-s-text text-p-text hover:underline hover:underline-offset-4 ;
+    @apply hover:text-typography-white/60 text-typography-white hover:underline hover:underline-offset-4 ;
   }
 
   .input{
@@ -54,7 +54,6 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #1a1a1a;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

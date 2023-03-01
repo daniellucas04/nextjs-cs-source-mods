@@ -1,10 +1,10 @@
-import Subtitle from "../typography/Subtitle";
-import Mods from "../mods_cards/Mods";
+import Subtitle from "../../typography/Subtitle";
+import Mods from "../../mods_cards/Mods";
 import ModsList from "./ModsList";
-import Navbar from "../Navbar";
+import Navbar from "../../components/Navbar";
 
-export default function ModsPage(){
-  return(
+export default function ModsPage() {
+  return (
     <>
       <Navbar />
       <div className="flex gap-10 items-start">
@@ -17,13 +17,19 @@ export default function ModsPage(){
               <Subtitle text={"All server side mods"} />
             </div>
             <div className="grid grid-cols-3 grid-rows-1 gap-5">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9,10].map((idx) => (
-                <Mods key={idx} title={"Catch this mod"} description={"See the description"} src={"nada"} href={"/"} />
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((idx) => (
+                <Mods
+                  key={idx}
+                  title={"Catch this mod"}
+                  description={"See the description"}
+                  src={"nada"}
+                  href={"/"}
+                />
               ))}
             </div>
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }

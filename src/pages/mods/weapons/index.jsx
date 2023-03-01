@@ -1,7 +1,7 @@
 import WeaponList from "./WeaponList";
 import Subtitle from "@/pages/typography/Subtitle";
 import Mods from "../../mods_cards/Mods";
-import Navbar from "@/pages/Navbar";
+import Navbar from "@/pages/components/Navbar";
 import { useEffect, useState } from "react";
 
 export default function WeaponPage() {
@@ -47,7 +47,7 @@ export default function WeaponPage() {
                   description={weapon.Description}
                   src={weapon.Thumbnail}
                   category={weapon.Category}
-                  href={""}
+                  href={`/mods/weapons/${weapon.Title}`}
                 />
               ))}
             </div>

@@ -5,7 +5,7 @@ import { MdTitle } from "react-icons/md";
 import { requireAuthentication } from "@/utils/requireAuthentication";
 import Title from "@/pages/typography/Title";
 import Mods from "@/pages/mods_cards/Mods";
-import Navbar from "../Navbar";
+import Navbar from "../components/Navbar";
 
 export default function Upload() {
   const [title, setTitle] = useState("without title");

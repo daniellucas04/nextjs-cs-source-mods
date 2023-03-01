@@ -10,7 +10,7 @@ export default function Footer() {
         <a href="https://flowbite.com/" className="hover:underline">
           CSS: Mods™
         </a>
-        . All Rights Reserved.
+        . All Rights Reserved. <span className="font-bold">MIT License</span>
       </span>
       <ul className="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
