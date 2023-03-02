@@ -16,9 +16,9 @@ export default function HotContent({ img }) {
 
   return (
     <>
-      <div className="relative flex items-center">
+      <div className="relative flex items-center bg-30-white dark:bg-30-dark py-2">
         <MdChevronLeft
-          className="opacity-50 cursor-pointer hover:opacity-100"
+          className="opacity-50 cursor-pointer text-60-dark dark:text-60-white hover:opacity-100"
           onClick={slideLeft}
           size={60}
         />
@@ -36,7 +36,7 @@ export default function HotContent({ img }) {
           ))}
         </Link>
         <MdChevronRight
-          className="opacity-50 cursor-pointer hover:opacity-100"
+          className="opacity-50 cursor-pointer text-60-dark dark:text-60-white hover:opacity-100"
           onClick={slideRight}
           size={60}
         />

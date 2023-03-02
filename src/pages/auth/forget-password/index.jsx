@@ -1,4 +1,5 @@
 import BackButton from "@/pages/components/BackButton";
+import ToggleTheme from "@/pages/components/ToggleTheme";
 import { useState } from "react";
 import Title from "../../typography/Title";
 
@@ -24,20 +25,23 @@ export default function ForgetPassoword() {
   }
 
   return (
-    <>
-    <BackButton href={"/auth/login"} text={"Back to login"}/>
-      <section className="flex w-full h-full items-center justify-center mt-14">
-        <div className="flex p-12 rounded-md flex-col bg-secondary gap-5 mt-2">
+    <main className="bg-60-white dark:bg-60-dark text-60-dark dark:text-60-white h-full pb-[14.1rem] pt-[1rem]">
+      <div className="flex justify-between px-5">
+        <BackButton href={"/auth/login"} text={"Back to login"} />
+        <ToggleTheme />
+      </div>
+      <section className="flex w-full h-full items-center justify-center mt-14 text-60-dark dark:text-60-white">
+        <div className="flex p-12 rounded-md flex-col bg-30-white dark:bg-30-dark gap-5 mt-2">
           <span className="flex justift-center w-full -mt-10">
             <Title text={"Recover Password"} />
           </span>
           <div className="flex flex-col gap-2">
             <label htmlFor="email">Enter your account Email</label>
             <input
-              className="input p-3 bg-primary ring-1 focus:ring-2 focus:ring-indigo-400 ring-indigo-700"
+              className="input p-3 bg-60-white dark:bg-60-dark focus:ring-2 focus:ring-indigo-400"
               id="email"
             />
-            <button className="bg-primary p-3 rounded-md hover:ring-2 hover:ring-indigo-600 hover:text-secondary-text">
+            <button className="bg-10-white text-white dark:bg-10-dark p-3 rounded-md hover:bg-10-white/80 dark:hover:bg-10-dark/80 ">
               Send Code
             </button>
           </div>
@@ -50,7 +54,7 @@ export default function ForgetPassoword() {
             </button>
             <input
               onChange={(event) => setCode(Number(event.target.value))}
-              className="input p-3 bg-primary ring-1 focus:ring-2 focus:ring-indigo-400 ring-indigo-700"
+              className="input p-3 bg-60-white dark:bg-60-dark focus:ring-2 focus:ring-indigo-400"
               type="text"
               id="code-confirmation"
             />
@@ -67,18 +71,18 @@ export default function ForgetPassoword() {
               <label htmlFor="password">Password</label>
               <input
                 onChange={(event) => setPassword(event.target.value)}
-                className="input p-3 bg-primary ring-1 focus:ring-2 focus:ring-indigo-400 ring-indigo-700"
+                className="input p-3 bg-60-white dark:bg-60-dark focus:ring-2 focus:ring-indigo-400"
                 type="password"
               />
               <label htmlFor="confirm-password">Confirm Password</label>
               <input
                 onChange={(event) => setConfirmPassword(event.target.value)}
-                className="input p-3 bg-primary ring-1 focus:ring-2 focus:ring-indigo-400 ring-indigo-700"
+                className="input p-3 bg-60-white dark:bg-60-dark focus:ring-2 focus:ring-indigo-400"
                 type="password"
               />
               <button
                 disabled={disabledButton}
-                className="bg-primary disabled:opacity-60 disabled:pointer-events-none p-3 rounded-md hover:ring-2  focus:ring-2 hover:ring-indigo-600"
+                className="bg-10-white text-white dark:bg-10-dark hover:bg-10-white/80 dark:bg-10-dark/80 disabled:opacity-60 disabled:pointer-events-none p-3 rounded-md focus:ring-2"
               >
                 Create new password
               </button>
@@ -86,6 +90,6 @@ export default function ForgetPassoword() {
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 }

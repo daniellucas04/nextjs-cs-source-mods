@@ -52,14 +52,14 @@ export default function Upload() {
   }
 
   return (
-    <>
+    <main className="bg-60-white dark:bg-60-dark">
       <Navbar />
       <Title text={"Complete the form to upload your mod"} />
-      <div className="flex items-start mt-10 justify-evenly">
+      <div className="flex items-start mt-10 justify-evenly ">
         <section>
           <main className="flex flex-col justify-center">
             <div className="w-full h-min mb-10 flex justify-center">
-              <form className="w-[40rem] rounded ml-10 gap-4 flex flex-col bg-secondary p-10">
+              <form className="w-[40rem] rounded ml-10 gap-4 flex flex-col bg-30-white dark:bg-30-dark text-60-dark dark:text-60-white p-10">
                 <label className="text-xl" htmlFor="title">
                   Title
                 </label>
@@ -70,7 +70,7 @@ export default function Upload() {
                   <input
                     required
                     onChange={(event) => setTitle(event.target.value)}
-                    className="input bg-primary w-full ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 p-3 pl-10"
+                    className="input bg-60-white dark:bg-60-dark w-full border border-60-dark focus:ring-2 focus:ring-indigo-400 p-3 pl-10"
                     id="title"
                     type="text"
                   />
@@ -85,7 +85,7 @@ export default function Upload() {
                   id="description"
                   cols="30"
                   rows="10"
-                  className="resize-none rounded bg-primary ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 p-1 "
+                  className="input resize-none rounded-md bg-60-white dark:bg-60-dark w-full border border-60-dark focus:ring-2 focus:ring-indigo-400 p-1 "
                 />
 
                 <label className="text-xl" htmlFor="category">
@@ -98,7 +98,7 @@ export default function Upload() {
                   </div>
                   <select
                     onChange={(event) => setCategory(event.target.value)}
-                    className="input text-base font-semibold bg-primary w-full ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 p-3 pl-10"
+                    className="input text-base font-semibold bg-60-white dark:bg-60-dark w-full border border-60-dark focus:ring-2 focus:ring-indigo-400 p-3 pl-10"
                     id="category"
                   >
                     <option value="0" selected>
@@ -134,18 +134,18 @@ export default function Upload() {
                   <input
                     onChange={(event) => setVideoId(event.target.value)}
                     required
-                    className="input bg-primary w-full ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 p-3 pl-10"
+                    className="input bg-60-white dark:bg-60-dark w-full border border-60-dark focus:ring-2 focus:ring-indigo-400 p-3 pl-10"
                     id="youtube-link"
                     type="text"
                   />
                 </div>
 
                 <label
-                  className="text-xl flex-col w-full h-[6rem] flex items-center bg-primary justify-center border-2 border-dashed border-indigo-600 rounded-xl cursor-pointer hover:text-indigo-300 transition-colors ease-in-out"
+                  className="text-xl flex-col w-full h-[6rem] flex items-center bg-60-white dark:bg-60-dark justify-center border-2 border-dashed border-indigo-600 rounded-xl cursor-pointer hover:text-10-white dark:hover:text-10-dark"
                   htmlFor="image"
                 >
                   Select an image
-                  <span className="text-xs text-gray-400/60">
+                  <span className="text-xs text-gray-500/60">
                     or drag the file here
                   </span>
                 </label>
@@ -155,7 +155,7 @@ export default function Upload() {
                     onImageChange(event);
                     setImage(event.target.value);
                   }}
-                  className="hidden bg-primary p-4 pl-10 w-full ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400"
+                  className="hidden bg-60-white dark:bg-60-dark w-full border border-60-dark focus:ring-2 focus:ring-indigo-400"
                   id="image"
                   type="file"
                 />
@@ -170,7 +170,7 @@ export default function Upload() {
                   <input
                     onChange={(event) => setDownloadLink(event.target.value)}
                     required
-                    className="input bg-primary w-full ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 p-3 pl-10"
+                    className="input bg-60-white dark:bg-60-dark w-full border border-60-dark focus:ring-2 focus:ring-indigo-400 p-3 pl-10"
                     type="text"
                     id="download_link"
                   />
@@ -192,13 +192,13 @@ export default function Upload() {
           />
           <button
             onClick={addModToDatabase}
-            className="bg-white text-s-text dark:bg-secondary dark:text-white hover:dark:text-s-text font-bold hover:text-p-text w-full px-4 py-2 ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 rounded-md"
+            className="button-action w-full px-4 py-3 font-semibold rounded-md"
           >
             Upload mod
           </button>
         </section>
       </div>
-    </>
+    </main>
   );
 }
 

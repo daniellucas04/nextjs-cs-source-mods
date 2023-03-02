@@ -1,3 +1,3 @@
 export default function modPage() {
-  return <>Hello Knifes</>;
+  return <>Hello from title</>;
 }

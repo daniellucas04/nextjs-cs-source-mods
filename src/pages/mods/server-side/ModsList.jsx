@@ -50,14 +50,14 @@ export default function ModsList() {
     <>
       {modsList.map((item, idx) => (
         <div key={idx} className="w-[7em] transition">
-          <h1 className="text-base font-bold flex w-max p-1 cursor-default">
+          <h1 className="text-base text-60-dark dark:text-60-white font-bold flex w-max p-1 cursor-default">
             {item.category}
           </h1>
           <ul className="flex flex-col h-min gap-1 rounded-xl px-1">
             {item.mods.map((mod, idx) => (
               <Link
                 href={""}
-                className="text-sm w-max ml-1 text-primary-text hover:underline hover:text-secondary-text cursor-pointer"
+                className="text-sm w-max ml-1 text-60-dark dark:text-60-white text-primary-text hover:underline hover:text-secondary-text cursor-pointer"
                 key={idx}
               >
                 {mod}

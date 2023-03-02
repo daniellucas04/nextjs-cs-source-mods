@@ -4,7 +4,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="p-4 bg-white shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-secondary">
+    <footer className="p-4 bg-60-white md:flex md:items-center md:justify-between md:p-6 dark:bg-60-dark">
       <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
         © {year}{" "}
         <a href="https://flowbite.com/" className="hover:underline">

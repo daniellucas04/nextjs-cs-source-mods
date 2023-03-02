@@ -39,17 +39,19 @@ export default function Mods({
   }
 
   return (
-    <aside className="bg-light-dark w-[30rem] flex rounded-lg">
-      <Link className="w-[46rem]" href={href}>
-        <div className="p-4 w-full">
-          <div className="flex justify-between">
+    <aside className="bg-30-white dark:bg-30-dark w-[30rem] flex rounded">
+      <Link className="w-[46rem] text-60-white" href={href}>
+        <div className="relative">
+          <div className="absolute bg-black/40 backdrop-blur-sm p-3 flex justify-between w-full">
             <div>
               <span>{uploadDate}</span>
-              <h1 className="text-xl font-bold py-4 truncate max-w-[25rem]">
+              <h1 className="text-2xl font-bold py-4 truncate max-w-[25rem]">
                 {title}
-                <span className="ml-4 bg-primary p-1 rounded">{category}</span>
+                <span className="ml-4 bg-10-white text-white dark:bg-10-dark uppercase text-base p-1 rounded">
+                  {category}
+                </span>
               </h1>
-              <p className="text-sm text-zinc-500 pb-2 truncate max-w-[25rem]">
+              <p className="text-base text-gray-300 pb-2 truncate max-w-[25rem]">
                 {description}
               </p>
             </div>
@@ -63,7 +65,7 @@ export default function Mods({
                     handleClickUpVote();
                   }}
                 >
-                  <TbArrowBigUpLines className="hover:text-red-500" size={20} />
+                  <TbArrowBigUpLines className="hover:text-red-500" size={25} />
                 </button>
                 <span className="text-xs">213</span>
                 <button
@@ -76,18 +78,17 @@ export default function Mods({
                 >
                   <TbArrowBigDownLines
                     className="hover:text-blue-500"
-                    size={20}
+                    size={25}
                   />
                 </button>
               </span>
             </div>
           </div>
           <img
-            className="w-full h-[20rem] object-cover rounded-sm border"
-            src={src}
+            className="w-full h-[20rem] object-cover rounded-sm"
+            src={"https://picsum.photos/200/300"}
           />
-
-          <div className="flex justify-between mt-3 p-2">
+          <div className="flex justify-between font-semibold text-60-dark dark:text-60-white mt-3 p-4">
             <span className="flex items-center flex-col cursor-default">
               <span className="flex items-center gap-1">
                 <AiFillEye />

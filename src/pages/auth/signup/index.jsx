@@ -1,14 +1,18 @@
 import BackButton from "@/pages/components/BackButton";
+import ToggleTheme from "@/pages/components/ToggleTheme";
 import { AiOutlineMail, AiOutlineUser } from "react-icons/ai";
 import { CgPassword } from "react-icons/cg";
 import FastLogin from "../FastLogin";
 
 export default function Signup() {
   return (
-    <>
-      <BackButton text={"Back to homepage"} href={"/"} />
-      <div className="flex items-center justify-center mt-14">
-        <form className="flex-col gap-3 flex bg-secondary w-max p-10">
+    <main className="bg-60-white dark:bg-60-dark text-60-dark dark:text-60-white h-full pb-[14.9rem] pt-[1rem]">
+      <div className="flex justify-between px-5">
+        <BackButton href={"/"} text={"Back to homepage"} />
+        <ToggleTheme />
+      </div>
+      <div className="flex items-center justify-center mt-14 bg-60-white dark:bg-60-dark text-60-dark dark:text-60-white">
+        <form className="flex-col gap-3 flex bg-30-white dark:bg-30-dark w-max p-10 rounded-md">
           <FastLogin text={"Sign Up"} />
           <label className="text-lg text-left" htmlFor="username">
             Username
@@ -19,7 +23,7 @@ export default function Signup() {
             </div>
             <input
               required
-              className="input bg-primary w-[19rem] ring-1 ring-indigo-600 focus:ring-2 focus:ring-indigo-700 p-3 pl-10"
+              className="input bg-60-white dark:bg-60-dark w-[19rem] focus:ring-2 focus:ring-indigo-700 p-3 pl-10"
               type="text"
               id="username"
             />
@@ -34,7 +38,7 @@ export default function Signup() {
             </div>
             <input
               required
-              className="input bg-primary w-[19rem] ring-1 ring-indigo-600 focus:ring-2 focus:ring-indigo-700 p-3 pl-10"
+              className="input bg-60-white dark:bg-60-dark w-[19rem] focus:ring-2 focus:ring-indigo-700 p-3 pl-10"
               type="email"
               id="email"
             />
@@ -50,7 +54,7 @@ export default function Signup() {
             <input
               required
               autoComplete="new-password"
-              className="input bg-primary w-[19rem] ring-1 ring-indigo-600 focus:ring-2 focus:ring-indigo-700 p-3 pl-10"
+              className="input bg-60-white dark:bg-60-dark w-[19rem] focus:ring-2 focus:ring-indigo-700 p-3 pl-10"
               type="password"
               id="password"
             />
@@ -66,19 +70,19 @@ export default function Signup() {
             <input
               required
               autoComplete="new-password"
-              className="input bg-primary w-[19rem] ring-1 ring-indigo-600 focus:ring-2 focus:ring-indigo-700 p-3 pl-10"
+              className="input bg-60-white dark:bg-60-dark w-[19rem] focus:ring-2 focus:ring-indigo-700 p-3 pl-10"
               type="password"
               id="confirm-password"
             />
           </div>
 
           <div className="w-[19rem] mt-2">
-            <button className="bg-primary disabled:opacity-60 disabled:pointer-events-none p-3 w-full rounded-md focus:ring-2 focus:ring-indigo-700 hover:text-secondary-text hover:ring-2 hover:ring-indigo-900">
+            <button className="text-white bg-10-white dark:bg-10-dark disabled:opacity-60 disabled:pointer-events-none p-3 w-full rounded-md focus:ring-2 focus:ring-indigo-700 hover:bg-10-white/80 dark:hover:bg-10-dark/80">
               Sign Up
             </button>
           </div>
         </form>
       </div>
-    </>
+    </main>
   );
 }

@@ -5,11 +5,11 @@
 
 @layer components{
   .card-weapon{
-    @apply flex flex-col justify-start ring-2 ring-secondary-white w-[16em] rounded-xl p-8;
+    @apply flex flex-col justify-start ring-2 ring-30-white w-[16em] rounded-xl p-8;
   }
 
-  .button-link{
-    @apply hover:bg-black/5 border border-transparent focus:border focus:border-indigo-700 transition;
+  .button-action{
+    @apply text-white bg-10-white hover:bg-10-white/90 dark:text-60-white dark:hover:bg-10-dark/90 dark:bg-10-dark transition;
   }
 
   .weapon-list{
@@ -17,7 +17,7 @@
   }
 
   .link-hover{
-    @apply hover:text-typography-white/60 text-typography-white hover:underline hover:underline-offset-4 ;
+    @apply text-30-dark dark:text-60-white dark:hover:underline dark:hover:text-10-dark dark:hover:decoration-10-dark hover:underline hover:text-10-white hover:decoration-10-white;
   }
 
   .input{

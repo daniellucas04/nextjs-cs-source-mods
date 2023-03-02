@@ -5,7 +5,8 @@ import { useState } from "react";
 import Link from "next/link";
 import FastLogin from "../FastLogin";
 import BackButton from "@/pages/components/BackButton";
-import { requireAuthentication } from "@/utils/requireAuthentication";
+import Navbar from "@/pages/components/Navbar";
+import ToggleTheme from "@/pages/components/ToggleTheme";
 
 export default function Login() {
   const [userInfo, setUserInfo] = useState({
@@ -22,12 +23,15 @@ export default function Login() {
   }
 
   return (
-    <>
-      <BackButton href={"/"} text={"Back to homepage"} />
+    <main className="bg-60-white dark:bg-60-dark text-60-dark dark:text-60-white h-full pb-[21.9rem] pt-[1rem]">
+      <div className="flex justify-between px-5">
+        <BackButton href={"/"} text={"Back to homepage"} />
+        <ToggleTheme />
+      </div>
       <div className="flex w-full h-full items-center justify-center mt-14">
         <form
           onSubmit={onSubmit}
-          className="flex flex-col gap-5 w-96 h-max bg-secondary p-10 rounded-md"
+          className="flex flex-col gap-5 w-96 h-max bg-30-white dark:bg-30-dark p-10 rounded-md"
         >
           <FastLogin text={"Login"} />
           <div className="flex flex-col gap-2">
@@ -49,7 +53,7 @@ export default function Login() {
                 required
                 type="email"
                 autoComplete={"current-email"}
-                className="input bg-primary w-[19rem] ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400 p-3 pl-10"
+                className="input bg-60-white dark:bg-60-dark w-full focus:ring-2 focus:ring-indigo-400 p-3 pl-10"
                 id="email"
                 name="email"
               />
@@ -73,7 +77,7 @@ export default function Login() {
                 }
                 required
                 autoComplete={"current-password"}
-                className="input bg-primary w-[19rem] p-3 pl-10 ring-1 ring-indigo-700 focus:ring-2 focus:ring-indigo-400"
+                className="input p-3 pl-10 bg-60-white dark:bg-60-dark w-full ring-indigo-700 focus:ring-2 focus:ring-indigo-400"
                 type="password"
                 id="password"
                 name="password"
@@ -86,7 +90,7 @@ export default function Login() {
           </span>
           <button
             type="submit"
-            className="bg-primary p-2 rounded-md focus:ring-2 focus:ring-indigo-700 hover:text-secondary-text hover:ring-2 hover:ring-indigo-900"
+            className="bg-10-white text-60-white font-semibold dark:bg-10-dark p-2 rounded-md focus:ring-2 focus:ring-indigo-700 hover:bg-10-white/80 dark:hover:bg-10-dark/80"
           >
             Login
           </button>
@@ -95,7 +99,7 @@ export default function Login() {
           </Link>
         </form>
       </div>
-    </>
+    </main>
   );
 }
 

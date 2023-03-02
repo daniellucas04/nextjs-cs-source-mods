@@ -8,11 +8,11 @@ export default function FastLogin({ text }) {
       <span className="flex uppercase font-semibold text-xl justify-center">
         {text}
       </span>
-      <hr className="mt-3" />
+      <div className="mt-3 h-[1px] bg-60-dark dark:bg-60-white" />
       <div className="flex gap-4 mt-4 justify-center">
         <span
           onClick={() => signIn("discord")}
-          className="bg-primary fast-signup hover:scale-105 transition ring-1 duration-500"
+          className="bg-60-white dark:bg-60-dark text-60-dark dark:text-60-white fast-signup hover:scale-105 transition ring-1 duration-500"
         >
           <FaDiscord className="text-blue-500" size={30} />
           Discord
@@ -21,7 +21,7 @@ export default function FastLogin({ text }) {
           onClick={() => {
             signIn("google");
           }}
-          className="bg-primary fast-signup hover:scale-105 transition ring-1 duration-500"
+          className="bg-60-white dark:bg-60-dark text-60-dark dark:text-60-white fast-signup hover:scale-105 transition ring-1 duration-500"
         >
           <FcGoogle size={30} />
           Google

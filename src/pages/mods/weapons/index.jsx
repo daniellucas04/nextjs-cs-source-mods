@@ -3,6 +3,7 @@ import Subtitle from "@/pages/typography/Subtitle";
 import Mods from "../../mods_cards/Mods";
 import Navbar from "@/pages/components/Navbar";
 import { useEffect, useState } from "react";
+import Footer from "@/pages/components/Footer";
 
 export default function WeaponPage() {
   const [weapons, setWeapons] = useState([]);
@@ -30,14 +31,14 @@ export default function WeaponPage() {
   return (
     <>
       <Navbar />
-      <div className="flex gap-10 items-start">
+      <div className="flex gap-10 items-start bg-60-white dark:bg-60-dark">
         <section className="weapon-list ml-4 w-[15em]">
           <WeaponList />
         </section>
         <div className="flex justify-center w-full">
           <div className="flex justify-between gap-2 flex-col">
             <div className="flex items-center justify-center mt-10">
-              <Subtitle text={"All weapons mods"} />
+              <Subtitle title={"All weapons mods"} />
             </div>
             <div className="grid grid-cols-3 grid-rows-1 gap-5">
               {weapons.map((weapon) => (
@@ -54,6 +55,7 @@ export default function WeaponPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
