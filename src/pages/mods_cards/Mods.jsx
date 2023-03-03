@@ -8,7 +8,6 @@ import Link from "next/link";
 export default function Mods({
   uploadDate,
   title,
-  src,
   description,
   href,
   category,
@@ -40,7 +39,12 @@ export default function Mods({
 
   return (
     <aside className="bg-30-white dark:bg-30-dark w-[30rem] flex rounded">
-      <Link className="w-[46rem] text-60-white" href={href}>
+      <Link
+        className="w-[46rem] text-60-white"
+        href={{
+          pathname: href,
+        }}
+      >
         <div className="relative">
           <div className="absolute bg-black/40 backdrop-blur-sm p-3 flex justify-between w-full">
             <div>

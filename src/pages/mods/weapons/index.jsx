@@ -48,7 +48,7 @@ export default function WeaponPage() {
                   description={weapon.Description}
                   src={weapon.Thumbnail}
                   category={weapon.Category}
-                  href={`/mods/weapons/${weapon.Title}`}
+                  href={`/mods/${weapon.Title}`}
                 />
               ))}
             </div>
