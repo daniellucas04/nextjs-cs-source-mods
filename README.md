@@ -11,3 +11,9 @@
 
 - [ ] criar menu para perfil
 - [ ] criar pagina para editar o perfil
+
+# Login e cadastro
+- [ ] conexão com banco de dados
+- [ ] criptografia de senha
+- [ ] cadastro de usuário
+- [ ] login de usuário
