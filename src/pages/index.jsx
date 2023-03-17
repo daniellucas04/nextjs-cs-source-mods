@@ -6,7 +6,9 @@ export default function Main() {
   return (
     <main className="h-screen bg-60-white dark:bg-60-dark">
       <Navbar />
-      <Homepage />
+      <div>
+        <Homepage />
+      </div>
       <Footer />
     </main>
   );
