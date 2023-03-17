@@ -6,12 +6,14 @@ import { Dropdown } from "flowbite-react";
 import { IoIosSettings } from "react-icons/io";
 import { FaExchangeAlt } from "react-icons/fa";
 import { BiLogOut } from "react-icons/bi";
+import { useRouter } from "next/router";
 
 export default function Navbar() {
   const { data } = useSession();
+  const router = useRouter();
 
   function redirectUser() {
-    console.log(redirectUser);
+    router.push("/profile");
   }
 
   return (
@@ -49,7 +51,7 @@ export default function Navbar() {
             src={data?.user?.image}
             alt="user photo"
           />
-          <Dropdown inline className="bg-60-dark dark:bg-60-white">
+          <Dropdown inline className="bg-60-dark dark:text-60-white">
             <Dropdown.Header>
               <span className="block text-sm">{data?.user?.name}</span>
               <span className="block truncate text-sm font-medium">
@@ -59,9 +61,7 @@ export default function Navbar() {
             <Dropdown.Item onClick={redirectUser} icon={IoIosSettings}>
               Options
             </Dropdown.Item>
-            <Dropdown.Item onClick={ToggleTheme} icon={FaExchangeAlt}>
-              Change Theme
-            </Dropdown.Item>
+            <Dropdown.Item icon={FaExchangeAlt}>Change Theme</Dropdown.Item>
             <Dropdown.Item onClick={signOut} icon={BiLogOut}>
               Sign Out
             </Dropdown.Item>
