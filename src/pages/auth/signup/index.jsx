@@ -1,5 +1,4 @@
 import BackButton from "@/pages/components/BackButton";
-import ToggleTheme from "@/pages/components/ToggleTheme";
 import { AiOutlineMail, AiOutlineUser } from "react-icons/ai";
 import { CgPassword } from "react-icons/cg";
 import FastLogin from "../FastLogin";
@@ -9,7 +8,6 @@ export default function Signup() {
     <main className="bg-60-white dark:bg-60-dark text-60-dark dark:text-60-white h-full pb-[14.9rem] pt-[1rem]">
       <div className="flex justify-between px-5">
         <BackButton href={"/"} text={"Back to homepage"} />
-        <ToggleTheme />
       </div>
       <div className="flex items-center justify-center mt-14 bg-60-white dark:bg-60-dark text-60-dark dark:text-60-white">
         <form className="flex-col gap-3 flex bg-30-white dark:bg-30-dark w-max p-10 rounded-md">

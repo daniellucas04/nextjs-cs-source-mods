@@ -1,5 +1,4 @@
 import BackButton from "@/pages/components/BackButton";
-import ToggleTheme from "@/pages/components/ToggleTheme";
 import { useState } from "react";
 import Title from "../../typography/Title";
 
@@ -28,7 +27,6 @@ export default function ForgetPassoword() {
     <main className="bg-60-white dark:bg-60-dark text-60-dark dark:text-60-white h-full pb-[14.1rem] pt-[1rem]">
       <div className="flex justify-between px-5">
         <BackButton href={"/auth/login"} text={"Back to login"} />
-        <ToggleTheme />
       </div>
       <section className="flex w-full h-full items-center justify-center mt-14 text-60-dark dark:text-60-white">
         <div className="flex p-12 rounded-md flex-col bg-30-white dark:bg-30-dark gap-5 mt-2">

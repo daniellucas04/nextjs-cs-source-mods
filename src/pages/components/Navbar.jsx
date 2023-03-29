@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import { signOut, useSession } from "next-auth/react";
-import ToggleTheme from "./ToggleTheme";
 import { Dropdown } from "flowbite-react";
 import { IoIosSettings } from "react-icons/io";
 import { FaExchangeAlt } from "react-icons/fa";
 import { BiLogOut } from "react-icons/bi";
 import { useRouter } from "next/router";
+import { changeTheme } from "@/utils/themeChanger";
 
 export default function Navbar() {
   const { data } = useSession();
@@ -45,13 +45,13 @@ export default function Navbar() {
         )}
       </ul>
       {data ? (
-        <div className="flex items-center md:order-2">
+        <div className="flex gap-1 items-center md:order-2">
           <img
             className="h-16 rounded-full"
             src={data?.user?.image}
             alt="user photo"
           />
-          <Dropdown inline className="bg-60-dark dark:text-60-white">
+          <Dropdown color="light" label="Profile">
             <Dropdown.Header>
               <span className="block text-sm">{data?.user?.name}</span>
               <span className="block truncate text-sm font-medium">
@@ -61,7 +61,9 @@ export default function Navbar() {
             <Dropdown.Item onClick={redirectUser} icon={IoIosSettings}>
               Options
             </Dropdown.Item>
-            <Dropdown.Item icon={FaExchangeAlt}>Change Theme</Dropdown.Item>
+            <Dropdown.Item icon={FaExchangeAlt} onClick={changeTheme}>
+              Change Theme
+            </Dropdown.Item>
             <Dropdown.Item onClick={signOut} icon={BiLogOut}>
               Sign Out
             </Dropdown.Item>
@@ -83,7 +85,6 @@ export default function Navbar() {
           </Link>
         </div>
       )}
-      <ToggleTheme />
     </nav>
   );
 }

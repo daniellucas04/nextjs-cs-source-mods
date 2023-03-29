@@ -5,8 +5,6 @@ import { useState } from "react";
 import Link from "next/link";
 import FastLogin from "../FastLogin";
 import BackButton from "@/pages/components/BackButton";
-import Navbar from "@/pages/components/Navbar";
-import ToggleTheme from "@/pages/components/ToggleTheme";
 
 export default function Login() {
   const [userInfo, setUserInfo] = useState({
@@ -26,7 +24,6 @@ export default function Login() {
     <main className="bg-60-white dark:bg-60-dark text-60-dark dark:text-60-white h-full pb-[21.9rem] pt-[1rem]">
       <div className="flex justify-between px-5">
         <BackButton href={"/"} text={"Back to homepage"} />
-        <ToggleTheme />
       </div>
       <div className="flex w-full h-full items-center justify-center mt-14">
         <form

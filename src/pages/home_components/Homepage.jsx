@@ -1,8 +1,5 @@
-import Subtitle from "../typography/Subtitle";
-import HotContent from "./HotContent";
-import { BsArrowDownRight } from "react-icons/bs";
 import Link from "next/link";
-import Title from "../typography/Title";
+import { Title } from "../typography/Typography";
 import Video from "./Video";
 
 export default function Homepage() {
@@ -14,7 +11,7 @@ export default function Homepage() {
           src={
             "https://imgs.search.brave.com/s5J5CIVuZmH5ll6xUQ95G5x_lTjUN9qaKshmgokYxVQ/rs:fit:1200:564:1/g:ce/aHR0cHM6Ly8zLmJw/LmJsb2dzcG90LmNv/bS8ta1Z1VkJTSkRU/WmcvVGlKRXJvelpn/aUkvQUFBQUFBQUFC/cG8vSFZPbndvZ2ls/QkEvczE2MDAvQ291/bnRlci1TdHJpa2Ut/MkQtTWFwLWdnLWJh/dHRsZWZpZWxkXzIu/anBn"
           }
-          width={1860}
+          width={1910}
         />
         <div className="absolute top-[30%] left-44 w-[85rem] flex justify-between">
           <div>
@@ -61,7 +58,7 @@ export default function Homepage() {
           </div>
         </div>
       </header>
-      <section className="p-5 mt-10 bg-60-white dark:bg-60-dark px-14">
+      <section className="p-5 bg-60-white dark:bg-60-dark px-14">
         <Title text={"Here are some tutorials if you are new!"} />
         <article className="text-60-dark dark:text-60-white ml-12 flex flex-col gap-4">
           <h1 className="text-3xl font-bold mt-4">How can I upload a mod?</h1>
@@ -154,7 +151,7 @@ export default function Homepage() {
           <h2 className="text-xl font-bold mt-4">
             We have a video for this, be prepared ☕
           </h2>
-          <Video src={"M3d9D876nIA"} height="450" width="750" />
+          <Video src={""} height="450" width="750" />
         </article>
       </section>
     </main>

@@ -2,32 +2,31 @@ import { requireAuthentication } from "@/utils/requireAuthentication";
 import { useSession } from "next-auth/react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import Title from "../typography/Title";
+import HotContent from "../home_components/HotContent";
+import { Title } from "../typography/Typography";
 
 export default function Profile() {
   const { data } = useSession();
-  const image = data.user.image;
+  console.log(data?.user?.image);
+
   return (
     <main className="bg-60-white dark:bg-60-dark">
       <Navbar />
       <Title text={"Your mods"} />
-      <section>Section for mods</section>
+      <HotContent img="https://imgs.search.brave.com/TODHgwtOHOpbDIiKLBJHYvP_kvnhLdS_3vlHfOwDx2c/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9jeWJl/cnBvc3QuY28vd3At/Y29udGVudC91cGxv/YWRzLzIwMjAvMDkv/Y3MtMi5qcGc" />
       <Title text={"Profile options"} />
       <form className="w-[40rem] rounded ml-10 gap-4 flex flex-col bg-30-white dark:bg-30-dark text-60-dark dark:text-60-white p-10">
         <label className="w-max" htmlFor="image">
           <div className="relative">
             <img
-              className="rounded-full w-26 cursor-pointer"
+              className="rounded-full w-26"
               src={`${data?.user?.image}`}
               alt="User"
             />
-            <span className="absolute cursor-pointer font-bold py-[3.5rem] left-0 right-0 -top-[1.6px] hover:rounded-full mx-auto my-auto text-center text-sm opacity-0 hover:opacity-100 hover:backdrop-brightness-50">
-              Change avatar
-            </span>
           </div>
         </label>
         <input className="hidden" id="image" type="file" />
-        {image.includes("discord") ? (
+        {data?.user?.image.includes("google") ? (
           <>
             <h1 className="text-sm font-bold bg-10-white dark:bg-10-dark p-1 rounded-md w-max text-white">
               Discord or Google login cannot change their username, email or

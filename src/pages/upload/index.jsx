@@ -4,7 +4,7 @@ import { BiCategory } from "react-icons/bi";
 import { MdTitle } from "react-icons/md";
 import { requireAuthentication } from "@/utils/requireAuthentication";
 import Title from "@/pages/typography/Title";
-import Mods from "@/pages/mods_cards/Mods";
+import Mods from "@/pages/mods/card/Mods";
 import Navbar from "../components/Navbar";
 
 export default function Upload() {
