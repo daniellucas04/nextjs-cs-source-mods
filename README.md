@@ -1,19 +1,17 @@
-# Página de mods
+# To run this project install
 
-- [X] upload page - limitar tamanho da descrição
+### NextJS
 
-# Rotas e Filtros
+```js
+  > npm install
+```
 
-- [X] usar url dinamico
-- [ ] página para download de mod com informações dinamicas
+### TailwindCSS
+```js
+  > npm install -D tailwindcss postcss autoprefixer
+```
 
-# Opções de Perfil
-
-- [ ] criar menu para perfil
-- [ ] criar pagina para editar o perfil
-
-# Login e cadastro
-- [ ] conexão com banco de dados
-- [ ] criptografia de senha
-- [ ] cadastro de usuário
-- [ ] login de usuário
+### Run
+```js
+  > npm run dev
+```
