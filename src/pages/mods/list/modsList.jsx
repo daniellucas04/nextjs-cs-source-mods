@@ -1,7 +1,7 @@
-export const serverSide = [
+export const server_side = [
   {
     category: "Featured",
-    serverSide: [
+    server_side: [
       "Configs for CS",
       "Maps for CS",
       "Sprays for CS",
@@ -11,7 +11,7 @@ export const serverSide = [
   },
   {
     category: "Players Model",
-    serverSide: [
+    server_side: [
       "CT models",
       "T models",
       "CT/T packs",
@@ -22,7 +22,7 @@ export const serverSide = [
   },
   {
     category: "Server tools",
-    serverSide: [
+    server_side: [
       "Server-side weapons",
       "Plugins for CS",
       "SorceMod plugins",
@@ -32,7 +32,7 @@ export const serverSide = [
   },
   {
     category: "Misc",
-    serverSide: [
+    server_side: [
       "Sounds",
       "Flashlights",
       "Programs",

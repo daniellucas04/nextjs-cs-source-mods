@@ -16,7 +16,6 @@ import { changeTheme } from "@/utils/themeChanger";
 
 export function Navbar() {
   const { data } = useSession();
-  const router = useRouter();
 
   function redirectUser() {
     router.push("/profile");
@@ -29,16 +28,16 @@ export function Navbar() {
     >
       <Logo />
       <ul className="flex gap-10 text-30-dark dark:text-60-white items-center">
-        <Link href="/mods/weapons" className="link-hover">
+        <Link href="/mods/list/weapons" className="link-hover">
           Weapons
         </Link>
-        <Link href="/mods/knifes" className="link-hover">
+        <Link href="/mods/list/knifes" className="link-hover">
           Knifes
         </Link>
-        <Link href="/mods/gloves" className="link-hover">
+        <Link href="/mods/list/gloves" className="link-hover">
           Gloves
         </Link>
-        <Link href="/mods/server-side" className="link-hover">
+        <Link href="/mods/list/server-side" className="link-hover">
           Server side
         </Link>
         {data && (
@@ -105,7 +104,7 @@ export function Footer() {
         <a href="https://flowbite.com/" className="hover:underline">
           CSS: Mods™
         </a>
-        . All Rights Reserved. <span className="font-bold">MIT License</span>
+        . All Rights Reserved. <span className="font-black">MIT License</span>
       </span>
       <ul className="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
