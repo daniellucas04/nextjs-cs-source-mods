@@ -1,7 +1,6 @@
-import BackButton from "@/pages/components/BackButton";
+import { BackButton } from "@/pages/components/Components";
 import { AiOutlineMail, AiOutlineUser } from "react-icons/ai";
 import { CgPassword } from "react-icons/cg";
-import FastLogin from "../FastLogin";
 
 export default function Signup() {
   return (
@@ -11,7 +10,6 @@ export default function Signup() {
       </div>
       <div className="flex items-center justify-center mt-14 bg-60-white dark:bg-60-dark text-60-dark dark:text-60-white">
         <form className="flex-col gap-3 flex bg-30-white dark:bg-30-dark w-max p-10 rounded-md">
-          <FastLogin text={"Sign Up"} />
           <label className="text-lg text-left" htmlFor="username">
             Username
           </label>

@@ -2,8 +2,7 @@ import { useSession } from "next-auth/react";
 import { FcCalendar } from "react-icons/fc";
 import query from "@/lib/database";
 import Link from "next/link";
-import Navbar from "../components/Navbar";
-import Video from "../home_components/Video";
+import { Navbar, Video } from "../components/Components";
 
 export default function modPage({ getMod }) {
   const { data } = useSession();

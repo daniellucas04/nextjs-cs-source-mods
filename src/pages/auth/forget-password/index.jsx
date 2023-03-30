@@ -1,6 +1,7 @@
-import BackButton from "@/pages/components/BackButton";
+import { Title } from "@/pages/components/typography/Typography";
+
+import { BackButton } from "@/pages/components/Components";
 import { useState } from "react";
-import Title from "../../typography/Title";
 
 export default function ForgetPassoword() {
   const [password, setPassword] = useState("");

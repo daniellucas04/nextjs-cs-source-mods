@@ -1,6 +1,6 @@
 import { serverSide, knifes, gloves, weapons } from "./modsList";
-import { Subtitle } from "@/pages/typography/Typography";
-import Navbar from "../../components/Navbar";
+import { Subtitle } from "@/pages/components/typography/Typography";
+import { Navbar } from "@/pages/components/Components";
 import Link from "next/link";
 import Mods from "@/pages/mods/card/Mods";
 import { useEffect, useState } from "react";
@@ -31,7 +31,7 @@ export default function List() {
       <Navbar />
       <div className="flex gap-10 items-start bg-60-white dark:bg-60-dark">
         <section className="weapon-list ml-4 w-[15em]">
-          <ModSummary modInList={knifes} />
+          {/* <ModSummary modInList={knifes} /> */}
         </section>
         <div className="flex justify-center w-full">
           <div className="flex justify-between gap-2 flex-col">

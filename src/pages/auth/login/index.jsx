@@ -1,10 +1,11 @@
+import Link from "next/link";
+import FastLogin from "../FastLogin";
+
 import { AiOutlineMail } from "react-icons/ai";
 import { CgPassword } from "react-icons/cg";
 import { getSession, signIn } from "next-auth/react";
 import { useState } from "react";
-import Link from "next/link";
-import FastLogin from "../FastLogin";
-import BackButton from "@/pages/components/BackButton";
+import { BackButton } from "@/pages/components/Components";
 
 export default function Login() {
   const [userInfo, setUserInfo] = useState({

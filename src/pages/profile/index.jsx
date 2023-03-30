@@ -1,9 +1,7 @@
 import { requireAuthentication } from "@/utils/requireAuthentication";
 import { useSession } from "next-auth/react";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import HotContent from "../home_components/HotContent";
-import { Title } from "../typography/Typography";
+import { Navbar, Footer, HotContent } from "../components/Components";
+import { Title } from "../components/typography/Typography";
 
 export default function Profile() {
   const { data } = useSession();

@@ -1,11 +1,12 @@
+import Mods from "@/pages/mods/card/Mods";
+
 import { useState } from "react";
 import { FiLink, FiUploadCloud } from "react-icons/fi";
 import { BiCategory } from "react-icons/bi";
 import { MdTitle } from "react-icons/md";
 import { requireAuthentication } from "@/utils/requireAuthentication";
-import Title from "@/pages/typography/Title";
-import Mods from "@/pages/mods/card/Mods";
-import Navbar from "../components/Navbar";
+import { Title } from "../components/typography/Typography";
+import { Navbar } from "../components/Components";
 
 export default function Upload() {
   const [title, setTitle] = useState("without title");
@@ -101,9 +102,7 @@ export default function Upload() {
                     className="input text-base font-semibold bg-60-white dark:bg-60-dark w-full border border-60-dark focus:ring-2 focus:ring-indigo-400 p-3 pl-10"
                     id="category"
                   >
-                    <option value="0" selected>
-                      Select a Category
-                    </option>
+                    <option defaultValue={0}>Select a Category</option>
                     <option value="0" disabled>
                       ------------ Weapons and Skins ------------
                     </option>

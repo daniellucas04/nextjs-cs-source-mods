@@ -71,7 +71,7 @@ export default function Mods({
                 >
                   <TbArrowBigUpLines className="hover:text-red-500" size={25} />
                 </button>
-                <span className="text-xs">213</span>
+                <span className="text-xs">0</span>
                 <button
                   id="downVote"
                   onClick={() => {
@@ -95,22 +95,19 @@ export default function Mods({
           <div className="flex justify-between font-semibold text-60-dark dark:text-60-white mt-3 p-4">
             <span className="flex items-center flex-col cursor-default">
               <span className="flex items-center gap-1">
-                <AiFillEye />
-                1231
+                <AiFillEye />0
               </span>
               views
             </span>
             <span className="flex items-center flex-col cursor-default">
               <span className="flex items-center gap-1">
-                <MdDownload />
-                1231
+                <MdDownload />0
               </span>
               downloads
             </span>
             <span className="flex items-center flex-col cursor-default">
               <span className="flex items-center gap-1">
-                <BsChatRightDotsFill />
-                1231
+                <BsChatRightDotsFill />0
               </span>
               comments
             </span>
