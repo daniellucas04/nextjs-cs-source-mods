@@ -15,6 +15,7 @@ import { useRouter } from "next/router";
 import { changeTheme } from "@/utils/themeChanger";
 
 export function Navbar() {
+  const router = useRouter();
   const { data } = useSession();
 
   function redirectUser() {
